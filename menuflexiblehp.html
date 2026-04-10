@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Cendana</title>
+    
+    <style>
+        /* Reset default margin dan padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Container utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Flexbox untuk navigasi */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        /* Grid sistem untuk layout */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #f4f4f4;
+            padding: 20px;
+            flex: 1 1 calc(33.333% - 20px); /* Tiga kolom untuk PC */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsif untuk layar lebih kecil */
+        @media (max-width: 768px) {
+            .grid-item {
+                flex: 1 1 calc(50% - 20px); /* Dua kolom untuk tablet */
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-item {
+                flex: 1 1 100%; /* Satu kolom untuk HP */
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li a {
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Container Konten -->
+    <div class="container">
+        <div class="grid">
+            <div class="grid-item">
+                <h2>Item 1</h2>
+                <p>Konten untuk item pertama.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Item 2</h2>
+                <p>Konten untuk item kedua.</p>
+            </div>
+            <div class="grid-item">
+                <h2>Item 3</h2>
+                <p>Konten untuk item ketiga.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

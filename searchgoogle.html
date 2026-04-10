@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #searchInput {
+            width: 80%;
+            padding: 10px;
+        }
+        #searchButton {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #searchButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Google Search Engine</h1>
+    <input type="text" id="searchInput" placeholder="Enter search query...">
+    <button id="searchButton" onclick="searchGoogle()">Search Google</button>
+
+    <script>
+        function searchGoogle() {
+            let query = document.getElementById('searchInput').value;
+            if (query) {
+                // Redirect to Google search results page with the entered query
+                window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+            }
+        }
+    </script>
+
+</body>
+</html>

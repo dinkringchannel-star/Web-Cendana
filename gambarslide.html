@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow di Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: 0.6s ease;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text {
+            color: #fff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 10px;
+            background: #ddd;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: 0.4;}
+            to {opacity: 1;}
+        }
+
+        @media only screen and (max-width: 768px) {
+            .prev, .next {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center">Slideshow Gambar di Web</h2>
+
+<div class="slideshow-container">
+
+    <!-- Gambar Slide 1 -->
+    <div class="mySlides fade">
+        <img src="https://via.placeholder.com/1000x400?text=Slide+1" class="slides" alt="Slide 1">
+        <div class="text">Slide 1</div>
+    </div>
+
+    <!-- Gambar Slide 2 -->
+    <div class="mySlides fade">
+        <img src="perosotan.jpg=Slide+2" class="slides" alt="Slide 2">
+        <div class="text">Slide 2</div>
+    </div>
+
+    <!-- Gambar Slide 3 -->
+    <div class="mySlides fade">
+        <img src="https://via.placeholder.com/1000x400?text=Slide+3" class="slides" alt="Slide 3">
+        <div class="text">Slide 3</div>
+    </div>
+	
+	<!-- Gambar Slide 4 -->
+    <div class="mySlides fade">
+        <img src="https://via.placeholder.com/1000x400?text=Slide+4" class="slides" alt="Slide 4">
+        <div class="text">Slide 4</div>
+    </div>
+
+    <!-- Tombol Sebelumnya dan Berikutnya -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<br>
+
+<!-- Titik/Bullet untuk indikator slide -->
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+	<span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<!-- Script JavaScript untuk mengatur slideshow -->
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+</body>
+</html>
